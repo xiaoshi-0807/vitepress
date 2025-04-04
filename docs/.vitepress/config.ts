@@ -18,6 +18,7 @@ export default defineConfig({
   themeConfig: {
     nav: [
       { text: 'その他', link: '/example' },
+      { text: 'コンテンツ', link: '/ヒートマップ分析の手順'}
 
       // {
       //   text: 'Dropdown Menu',
