@@ -1,14 +1,14 @@
-# VitePress 💙 StackBlitz
+# VitePressで 💙 ブロクを作成してみた！
 
 Hi there :wave: This is a demo running VitePress within your **browser tab**!
 
-## Powered by Vite
+## Deploy時の注意事項
 
-VitePress uses Vite under the hood. This means:
+Github経由でワンクリックDeploy:
 
-- Instant server start
-- Lightning fast HMR
-- Optimized builds
+- stackblitzの画面からリポジトリを作成
+- Vercelで新規プロジェクトを作成
+- Domain設定は.vercel.appの左部分のみ変更
 
 ## Markdown-Centered
 
