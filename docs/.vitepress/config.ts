@@ -23,6 +23,17 @@ const mouseflowScriptContent: string = `window._mfq = window._mfq || [];
   document.getElementsByTagName("head")[0].appendChild(mf);
 })();`;
 
+// Google Tag Manager - <script> 部分 (GTM-XXXXXXX を実際のIDに置き換えてください)
+const gtmScriptContent: string = `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KPQVNJTZ');`; // GTM-XXXXXXX を置き換える
+
+// Google Tag Manager - <noscript> 部分のコンテンツ (GTM-XXXXXXX を実際のIDに置き換えてください)
+const gtmNoScriptContent: string = `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KPQVNJTZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe>`; // GTM-XXXXXXX を置き換える
+
 // refer https://vitepress.dev/reference/site-config for details
 export default defineConfig({
   lang: 'ja',
@@ -49,6 +60,19 @@ export default defineConfig({
       'script',
       {}, // Mouseflow 脚本的空属性对象
       mouseflowScriptContent
+    ],
+    
+    // Google Tag Manager - script part
+    [
+      'script',
+      {},
+      gtmScriptContent
+    ],
+    // Google Tag Manager - noscript part
+    [
+      'noscript', // タグ名を 'noscript' に
+      {},       // 属性はなし
+      gtmNoScriptContent // noscript の中身
     ]
   ],
 
