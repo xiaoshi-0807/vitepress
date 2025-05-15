@@ -14,6 +14,15 @@ const hotjarScriptContent: string = `(function (c, s, q, u, a) {
   }
 })(window, document, 'https://static.hj.contentsquare.net/c/csq-', '.js', 6404108);`;
 
+// Mouseflow 脚本内容
+const mouseflowScriptContent: string = `window._mfq = window._mfq || [];
+(function() {
+  var mf = document.createElement("script");
+  mf.type = "text/javascript"; mf.defer = true;
+  mf.src = "//cdn.mouseflow.com/projects/6faca729-8b29-4171-8a70-ad6fe0224a99.js";
+  document.getElementsByTagName("head")[0].appendChild(mf);
+})();`;
+
 // refer https://vitepress.dev/reference/site-config for details
 export default defineConfig({
   lang: 'ja',
@@ -35,6 +44,11 @@ export default defineConfig({
       // シングルクォートやダブルクォートが含まれていてもエスケープの必要はありません
       // hotjar
       hotjarScriptContent
+    ],
+    [
+      'script',
+      {}, // Mouseflow 脚本的空属性对象
+      mouseflowScriptContent
     ]
   ],
 
