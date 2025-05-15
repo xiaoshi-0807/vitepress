@@ -1,4 +1,18 @@
 import { defineConfig } from 'vitepress';
+// Hotjar 脚本内容
+const hotjarScriptContent: string = `(function (c, s, q, u, a) {
+  c.hj=c.hj||function(){(c.hj.q=c.hj.q||[]).push(arguments)};
+  c._hjSettings = { hjid: a, hjsv: 6 }; // hjsv 通常是 6
+  let r = s.getElementsByTagName('head')[0];
+  let e = s.createElement('script');
+  e.async = true;
+  e.src = q + c._hjSettings.hjid + u;
+  if (r) {
+      r.appendChild(e);
+  } else {
+      console.error('Hotjar: <head> element not found to append script.');
+  }
+})(window, document, 'https://static.hj.contentsquare.net/c/csq-', '.js', 6404108);`;
 
 // refer https://vitepress.dev/reference/site-config for details
 export default defineConfig({
@@ -12,6 +26,15 @@ export default defineConfig({
       {
         src: 'https://js.ptengine.jp/6bk78i6l.js'
       }
+      
+    ],
+    [
+      'script',
+      {}, // このスクリプト自体に特別な属性が不要な場合は空のオブジェクト
+      // 提供されたJavaScriptコードをテンプレートリテラル（バッククォート）で囲んで文字列として記述
+      // シングルクォートやダブルクォートが含まれていてもエスケープの必要はありません
+      // hotjar
+      hotjarScriptContent
     ]
   ],
 
